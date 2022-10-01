@@ -1,5 +1,9 @@
 //pseudo code//
 /*
+
+//per manuel in class need to make timer and inlude logic so that will go through array that has ogjects. and the objects have the questions and array aof possible answers, key that tell you what answer is right.
+
+
 -go to page and you will see start page with button that says take quiz. :there should be a 'view highscores" links at top left and timer at top right.)
 
 -click start quiz button and the graphics on the main page disappear and a page showing a multiple choice question shows up. also the click event will start the timer countdown

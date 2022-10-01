@@ -21,4 +21,32 @@ body {
 section {
   display: block;
   text-align: center;
+  width: 50vw;
+  height: 25vh;
+  margin: auto;
+}
+
+.question-boxes {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+}
+
+.answer1,
+.answer2,
+.answer3,
+.answer4 {
+  margin: 5px;
+  width: fit-content;
+  color: white;
+  background-color: blueviolet;
+  border-radius: 10px;
+  border-width: 0px;
+}
+
+.answer1:hover,
+.answer2:hover,
+.answer3:hover,
+.answer4:hover {
+  opacity: 0.5;
 }
