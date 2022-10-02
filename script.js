@@ -3,8 +3,6 @@
 //pseudo code//
 /*
 
-//per manuel in class need to make timer and inlude logic so that will go through array that has ogjects. and the objects have the questions and array aof possible answers, key that tell you what answer is right.
-
 
 
 
@@ -70,7 +68,20 @@ var questionsBankArray = [
 // 1. making timer
 //select timer elemnet query selector and store in a varible so we can get timer to stop at 0. also store
 
+//putting elments into varibales
+
 var timerElement = document.querySelector(".countdown-timer");
+var ViewHighscoresElement = document.querySelector(".view-highscores")
+var startQuizButtonElement = document.querySelector(".start-quiz-button")
+var button1 = document.querySelector(".answer1")
+var button2 = document.querySelector(".answer2")
+var button3 = document.querySelector(".answer3")
+var button4 = document.querySelector(".answer4")
+var submitHighscore = document.querySelector(".highscore-input-text")
+var clearHighscore = document.querySelector(".clear-highscores")
+var playAgain = document.querySelector(".go-back-to-startpage")
+
+//variables
 var timer;
 var timerCount;
 
