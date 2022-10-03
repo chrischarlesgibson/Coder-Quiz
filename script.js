@@ -73,42 +73,56 @@ var questionsBankArray = [
 ];
 
 //select timer elemnet query selector and store in a varible so we can get timer to stop at 0. also store
-var timerElement = document.querySelector(".countdown-timer");
+var timerElement = document.querySelector(".countdown-timer-number");
 var ViewHighscoresElement = document.querySelector(".view-highscores");
 var startQuizButtonElement = document.querySelector(".start-quiz-button");
-var button1 = document.querySelector(".answer1");
-var button2 = document.querySelector(".answer2");
-var button3 = document.querySelector(".answer3");
-var button4 = document.querySelector(".answer4");
+var button1 = document.querySelector("#answer1");
+var button2 = document.querySelector("#answer2");
+var button3 = document.querySelector("#answer3");
+var button4 = document.querySelector("#answer4");
 var submitHighscore = document.querySelector(".highscore-input-text");
 var clearHighscore = document.querySelector(".clear-highscores");
 var playAgainBTN = document.querySelector(".go-back-to-startpage");
 
+var index = 0;
 var secondsLeft = 60;
 
-//event listener for clicking start button
-startQuizButtonElement.addEventListener("click");
-
 //event listener for listening for any clisks with the class of answerChoice. so if user selects one of the for answers something happpens
-answerChoice.addEventListener("click");
+// button1.addEventListener("click");
+// button2.addEventListener("click");
+// button3.addEventListener("click");
+// button4.addEventListener("click");
+
+//event listener for clicking start button
+startQuizButtonElement.addEventListener("click", startQuiz);
 
 //start timing function to be called when start button is clicked, but will be called within the startquiz function
 function startTiming() {
   var timer = setInterval(function () {
-    secondsLeft--;
-    timerElement.textContent = secondsLeft;
-    if (secondsLeft === 0) {
+    --secondsLeft;
+    timerElement.textContent = secondsLeft + "s";
+    console.log(secondsLeft);
+    if (secondsLeft <= 0) {
       clearInterval(timer);
-      quizComplete();
+      AllDone();
     }
   }, 1000);
 }
 
-//function to be called when start button clicked
-function startQuiz() {}
+//function to be called when start button clicked. will call on the message display function to display a random question and will also call on the startTiming function to start the timer at 60 seconds
+function startQuiz() {
+  //   displayQuestions();
+  startTiming();
+}
 
 //function that randomly selects a question and displays it . is called on within the startquiz function
-function displayQuestions() {}
+
+// function displayQuestions() {
+//   var randomQuestion =
+//       questionsBankArray[Math.floor(Math.random() * questionsBankArray.length)];
+//     index=
+
+// }
 
 //function called when you select correct answser
 function correctAnswerSelected() {}
@@ -117,7 +131,7 @@ function correctAnswerSelected() {}
 function wrongAnswerSelected() {}
 
 //the quizcomplete function is called when you answer all questions or time runs out
-function quizComplete() {}
+function AllDone() {}
 
 //function that enter your initals into local storage
 function enterHighscore() {}
