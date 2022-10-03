@@ -40,7 +40,7 @@ message shows up saying "correct" and a no time is taken off timer. then it autm
 
 var questionsBankArray = [
   {
-    question: "what does git pull origin main do?",
+    title: "what does git pull origin main do?",
     multipleChoiceOptions: [
       "downloads content from remote repository and updates local repository",
       "this command does nothing",
@@ -50,23 +50,22 @@ var questionsBankArray = [
     indexOfAnswer: 0,
   },
   {
-    question:
-      "what array method puts all the elements of an array into a string?",
+    title: "what array method puts all the elements of an array into a string?",
     multipleChoiceOptions: ["fill()", "includes()", "copyWithin()", "join()"],
     indexOfAnswer: 3,
   },
   {
-    question: "what method converts an object ot an array?",
+    title: "what method converts an object ot an array?",
     multipleChoiceOptions: ["isArray()", "join()", "entries()", "from()"],
     indexOfAnswer: 3,
   },
   {
-    question: "What method can add or remove elements from an array?",
+    title: "What method can add or remove elements from an array?",
     multipleChoiceOptions: ["slice()", "unshift()", "splice()", "ammend()"],
     indexOfAnswer: 2,
   },
   {
-    question: "what method sorts elements of an array?",
+    title: "what method sorts elements of an array?",
     multipleChoiceOptions: ["pop()", "length()", "sort()", "shift()"],
     indexOfAnswer: 2,
   },
@@ -77,7 +76,7 @@ var timerEl = document.querySelector(".countdown-timer-number");
 var ViewHighscoresEl = document.querySelector(".view-highscores");
 var startQuizButtonEl = document.querySelector(".start-quiz-button");
 var questionBoxesEl = document.querySelector(".question-boxes");
-var questionEl = document.querySelector(".question");
+var questionTitleEl = document.querySelector(".question");
 var button1El = document.querySelector("#answer1");
 var button2El = document.querySelector("#answer2");
 var button3El = document.querySelector("#answer3");
@@ -90,13 +89,14 @@ var index = 0;
 var secondsLeft = 60;
 var randomQuestion = "";
 var selectedAnswer = "";
-var questionsAlreadyAnswered=[]
+// var questionsAlreadyAnswered = []
+var currentQuestionIndex = 0;
 
-//event listener for listening for any clisks with the class of answerChoice. so if user selects one of the for answers then the check answer function is called 
-button1El.addEventListener("click", checkAnswer);
-button2El.addEventListener("click", checkAnswer);
-button3El.addEventListener("click", checkAnswer);
-button4El.addEventListener("click", checkAnswer);
+//event listener for listening for any clisks with the class of answerChoice. so if user selects one of the for answers then the check answer function is called
+// button1El.addEventListener("click", checkAnswer);
+// button2El.addEventListener("click", checkAnswer);
+// button3El.addEventListener("click", checkAnswer);
+// button4El.addEventListener("click", checkAnswer);
 
 //event listener for clicking start button
 startQuizButtonEl.addEventListener("click", startQuiz);
@@ -122,31 +122,36 @@ function startQuiz() {
 
 //function that randomly selects a question and displays it . is called on within the startquiz function
 
-function pickRandomQuestion()
-
 function displayQuestions() {
   //randomly picks question from question array by looping thru it and picking randome index of the array and then pushes that question into the questionalreadyanswered arrray and splices it out of the questions bank array so it cant be selected
-   
-        randomQuestion =
-            questionsBankArray[Math.floor(Math.random() * questionsBankArray.length)];
-        questionsAlreadyAnswered.push(questionsBankArray[i])
-        questionsBankArray.splice(randomQuestion,1)
-    }
+  var currentQuestion = questionsBankArray[currentQuestionIndex];
+  // randomQuestion =
+  //     questionsBankArray[Math.floor(Math.random() * questionsBankArray.length)];
+  // questionsAlreadyAnswered.push(questionsBankArray[i])
+  // questionsBankArray.splice(randomQuestion,1)
+  questionTitleEl.textContent = currentQuestion.title;
 
-  
+  for (var i = 0; i < currentQuestion.multipleChoiceOptions.length; i++) {
+    button1El.textContent = currentQuestion.multipleChoiceOptions[0];
 
+    button2El.textContent = currentQuestion.multipleChoiceOptions[1];
+
+    button3El.textContent = currentQuestion.multipleChoiceOptions[2];
+
+    button4El.textContent = currentQuestion.multipleChoiceOptions[3];
+  }
+}
 
 //function to check if picked answer is corect of wrong
-function checkAnswer(answer) {
-    var isCorrectAnswer = false;
-    for (var i = 0; i < questionsBankArray.length; i++){
-        if (selectedAnswer)
-    }
+// function checkAnswer(answer) {
+//     var isCorrectAnswer = false;
+//     for (var i = 0; i < questionsBankArray.length; i++){
+//         if (selectedAnswer)
+//     }
 
-    isCorrectAnswer = true;
+//     isCorrectAnswer = true;
 
-    
-}
+// }
 
 //the quizcomplete function is called when you answer all questions or time runs out
 function AllDone() {}
