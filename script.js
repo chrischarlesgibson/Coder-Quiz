@@ -73,34 +73,39 @@ var questionsBankArray = [
 ];
 
 //select timer elemnet query selector and store in a varible so we can get timer to stop at 0. also store
-var timerElement = document.querySelector(".countdown-timer-number");
-var ViewHighscoresElement = document.querySelector(".view-highscores");
-var startQuizButtonElement = document.querySelector(".start-quiz-button");
-var button1 = document.querySelector("#answer1");
-var button2 = document.querySelector("#answer2");
-var button3 = document.querySelector("#answer3");
-var button4 = document.querySelector("#answer4");
-var submitHighscore = document.querySelector(".highscore-input-text");
-var clearHighscore = document.querySelector(".clear-highscores");
+var timerEl = document.querySelector(".countdown-timer-number");
+var ViewHighscoresEl = document.querySelector(".view-highscores");
+var startQuizButtonEl = document.querySelector(".start-quiz-button");
+var questionBoxesEl = document.querySelector(".question-boxes");
+var questionEl = document.querySelector(".question");
+var button1El = document.querySelector("#answer1");
+var button2El = document.querySelector("#answer2");
+var button3El = document.querySelector("#answer3");
+var button4El = document.querySelector("#answer4");
+var submitHighscoreEl = document.querySelector(".highscore-input-text");
+var clearHighscoreEl = document.querySelector(".clear-highscores");
 var playAgainBTN = document.querySelector(".go-back-to-startpage");
 
 var index = 0;
 var secondsLeft = 60;
+var randomQuestion = "";
+var selectedAnswer = "";
+var questionsAlreadyAnswered=[]
 
-//event listener for listening for any clisks with the class of answerChoice. so if user selects one of the for answers something happpens
-// button1.addEventListener("click");
-// button2.addEventListener("click");
-// button3.addEventListener("click");
-// button4.addEventListener("click");
+//event listener for listening for any clisks with the class of answerChoice. so if user selects one of the for answers then the check answer function is called 
+button1El.addEventListener("click", checkAnswer);
+button2El.addEventListener("click", checkAnswer);
+button3El.addEventListener("click", checkAnswer);
+button4El.addEventListener("click", checkAnswer);
 
 //event listener for clicking start button
-startQuizButtonElement.addEventListener("click", startQuiz);
+startQuizButtonEl.addEventListener("click", startQuiz);
 
 //start timing function to be called when start button is clicked, but will be called within the startquiz function
 function startTiming() {
   var timer = setInterval(function () {
     --secondsLeft;
-    timerElement.textContent = secondsLeft + "s";
+    timerEl.textContent = secondsLeft + "s";
     console.log(secondsLeft);
     if (secondsLeft <= 0) {
       clearInterval(timer);
@@ -111,24 +116,37 @@ function startTiming() {
 
 //function to be called when start button clicked. will call on the message display function to display a random question and will also call on the startTiming function to start the timer at 60 seconds
 function startQuiz() {
-  //   displayQuestions();
+  displayQuestions();
   startTiming();
 }
 
 //function that randomly selects a question and displays it . is called on within the startquiz function
 
-// function displayQuestions() {
-//   var randomQuestion =
-//       questionsBankArray[Math.floor(Math.random() * questionsBankArray.length)];
-//     index=
+function pickRandomQuestion()
 
-// }
+function displayQuestions() {
+  //randomly picks question from question array by looping thru it and picking randome index of the array and then pushes that question into the questionalreadyanswered arrray and splices it out of the questions bank array so it cant be selected
+   
+        randomQuestion =
+            questionsBankArray[Math.floor(Math.random() * questionsBankArray.length)];
+        questionsAlreadyAnswered.push(questionsBankArray[i])
+        questionsBankArray.splice(randomQuestion,1)
+    }
 
-//function called when you select correct answser
-function correctAnswerSelected() {}
+  
 
-//function called when you select correct answser
-function wrongAnswerSelected() {}
+
+//function to check if picked answer is corect of wrong
+function checkAnswer(answer) {
+    var isCorrectAnswer = false;
+    for (var i = 0; i < questionsBankArray.length; i++){
+        if (selectedAnswer)
+    }
+
+    isCorrectAnswer = true;
+
+    
+}
 
 //the quizcomplete function is called when you answer all questions or time runs out
 function AllDone() {}
