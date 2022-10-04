@@ -4,7 +4,7 @@
 
 ---
 
-Code quiz is an application that tests the users knowledge of JavaScript([Link to project found here]()). The user is prompted to click start quiz and they are faced with 5 multiple choice questions that are all Javascript related
+Code quiz is an application that tests the users knowledge of JavaScript([Link to project found here](https://chrischarlesgibson.github.io/Coder-Quiz/)). The user is prompted to click start quiz and they are faced with 5 multiple choice questions that are all Javascript related
 
 ## Usage
 
