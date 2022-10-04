@@ -3,11 +3,11 @@
 }
 
 html {
-  background: url(Matrix\ background.jpg) no-repeat center center fixed;
+  /* background: url(Matrix\ background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
 }
 
 header h2 {
@@ -15,11 +15,11 @@ header h2 {
 }
 .countdown-timer {
   font-size: 45px;
-  color: white;
+  color: black;
 }
 
 .view-highscores {
-  color: white;
+  color: black;
   font-size: 35px;
 }
 body {
@@ -29,13 +29,13 @@ body {
 }
 
 #question {
-  color: whitesmoke;
+  color: black;
 }
 .startpage-content-box {
   text-align: center;
   width: 50vw;
   height: 50vh;
-  color: white;
+  color: black;
 }
 
 .startpage-content-box h4 {
@@ -78,4 +78,8 @@ section {
 
 .hide {
   display: none;
+}
+
+#start-screen {
+  display: "";
 }

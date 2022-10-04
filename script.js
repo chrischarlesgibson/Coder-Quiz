@@ -58,6 +58,7 @@ var questionScreenEl = document.querySelector(".question-screen");
 var allDoneScreenEl = document.getElementById("all-done-screen");
 var highscoreScreenEl = document.getElementById("highscore-screen");
 
+var timer;
 var index = 0;
 var secondsLeft = 60;
 var randomQuestion = "";
@@ -83,18 +84,24 @@ function startTiming() {
 
 //function to be called when start button clicked. will call on the message display function to display a random question and will also call on the startTiming function to start the timer at 60 seconds
 function startQuiz() {
-  //   displayQuestions();
+  displayQuestions();
   startTiming();
 }
 
 //function that  selects a question and displays it . is called on within the startquiz function
 
-// function displayQuestions() {
-//   startPageScreenEl.classList.add("hide");
-//   questionScreenEl.removeAttribute("class");
+function displayQuestions() {
+  startPageScreenEl.setAttribute("class", "hide");
+  questionScreenEl.removeAttribute("class");
+}
+
+//function to set logic for displaying questions and answers cycling
+
+// function questionCycler() {
+//     if
+// }
 
 //   var currentQuestion = questionsBankArray[currentQuestionIndex];
-
 //   questionTitleEl.textContent = currentQuestion.title;
 
 //   var questionIndex = currentQuestion.multipleChoiceOptions;
@@ -116,7 +123,9 @@ function startQuiz() {
 // function to check if picked answer is corect of wrong
 
 //the quizcomplete function is called when you answer all questions or time runs out
-// function AllDone() {}
+// function AllDone() {
+//   clearInterval(timer);
+// }
 
 // //function that enter your initals into local storage
 // function enterHighscore() {}
